@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @Column(name="item_id")
@@ -38,14 +38,6 @@ public class Item {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus; //상품 판매 상태
 
-    @ManyToMany
-    @JoinTable(
-        name="member_item",
-            joinColumns = @JoinColumn(name = "member_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id")
-    )
-    private List<Member> member;
 
-    private LocalDateTime regTime; //등록 시간
-    private  LocalDateTime updateTime; //수정시간
+
 }
